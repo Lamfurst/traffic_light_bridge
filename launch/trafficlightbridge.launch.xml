@@ -1,0 +1,14 @@
+<!-- trafficlightbridge.launch.xml -->
+
+<launch>
+    <arg name="pub_all" default="True"/>
+    <arg name="carla_host" default="localhost"/>
+    <arg name="carla_port" default="2000"/>
+    <arg name="cl_aw_signal_mapping_file" default="$(find-pkg-prefix traffic_light_bridge)/share/traffic_light_bridge/config/tl_map.yaml"/>
+    <node pkg="traffic_light_bridge" exec="traffic_light_bridge" name="traffic_light_bridge">
+        <param name="carla_host" value="$(var carla_host)"/>
+        <param name="carla_port" value="$(var carla_port)"/>
+        <param name="cl_aw_signal_mapping_file" value="$(var cl_aw_signal_mapping_file)"/>
+        <param name="pub_all" value="$(var pub_all)"/>
+    </node>
+</launch>
